@@ -1,6 +1,6 @@
 import asyncio
-from functools import reduce
 import operator
+from functools import reduce
 
 from patio import Registry, ThreadPoolExecutor
 

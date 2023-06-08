@@ -1,6 +1,6 @@
 import asyncio
 
-from patio import Registry, NullExecutor
+from patio import NullExecutor, Registry
 
 from patio_rabbitmq import RabbitMQBroker
 

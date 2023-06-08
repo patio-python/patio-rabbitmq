@@ -2,7 +2,7 @@ import operator
 import os
 from contextlib import AsyncExitStack
 from functools import reduce
-from typing import Any, AsyncGenerator, Union, Callable
+from typing import Any, AsyncGenerator, Callable, Union
 
 import pytest
 from patio import NullExecutor, Registry, ThreadPoolExecutor
@@ -34,7 +34,7 @@ async def thread_executor() -> AsyncGenerator[Any, ThreadPoolExecutor]:
 
 async def test_simple(thread_executor: ThreadPoolExecutor):
     async with RabbitMQBroker(
-        thread_executor, amqp_url=AMQP_URL, auto_delete=True
+        thread_executor, amqp_url=AMQP_URL, auto_delete=True,
     ) as broker:
         assert await broker.call("mul", 1, 2, 3, 4, 5) == 120
         assert await broker.call(mul, 1, 2, 3, 4, 5) == 120
@@ -47,7 +47,7 @@ async def test_simple_client_server(thread_executor: ThreadPoolExecutor):
     async with AsyncExitStack() as stack:
         await stack.enter_async_context(
             RabbitMQBroker(
-                thread_executor, amqp_url=AMQP_URL, auto_delete=True
+                thread_executor, amqp_url=AMQP_URL, auto_delete=True,
             ),
         )
 
