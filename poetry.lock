@@ -416,17 +416,18 @@ testing = ["coverage", "flake8", "flake8-comprehensions", "flake8-deprecated", "
 
 [[package]]
 name = "patio"
-version = "0.0.1"
+version = "0.1.2"
 description = "Python Asynchronous Task for AsyncIO"
 category = "main"
 optional = false
-python-versions = "*"
-files = []
-develop = true
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "patio-0.1.2-py3-none-any.whl", hash = "sha256:7034ca4be60ec7ec62273f4bb77c8119b5cf8036a552d2632f146cce3f502b68"},
+    {file = "patio-0.1.2.tar.gz", hash = "sha256:9a08a9588575de8cf279d6fd8f6977ce8c022c00e33fbfb5f893505740dca271"},
+]
 
-[package.source]
-type = "directory"
-url = "../patio"
+[package.dependencies]
+typing_extensions = {version = "*", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "pluggy"
@@ -597,7 +598,7 @@ files = [
 name = "typing-extensions"
 version = "4.6.3"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
