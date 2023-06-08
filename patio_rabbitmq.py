@@ -5,7 +5,7 @@ from typing import Any, Dict, Optional, Tuple, Union
 import aio_pika.abc
 from aio_pika import connect_robust
 from aio_pika.patterns.rpc import RPC
-from patio import TaskFunctionType, AbstractExecutor
+from patio import AbstractExecutor, TaskFunctionType
 from patio.broker import AbstractBroker, TimeoutType
 from yarl import URL
 
@@ -14,7 +14,7 @@ class RabbitMQBroker(AbstractBroker):
     def __init__(
         self,
         executor: AbstractExecutor, *,
-        amqp_url: Union[str, URL], **rpc_kwargs
+        amqp_url: Union[str, URL], **rpc_kwargs: Any
     ):
         super().__init__(executor)
         self.__amqp_url = URL(amqp_url)
@@ -56,11 +56,12 @@ class RabbitMQBroker(AbstractBroker):
         return await self._rpc.call(
             func,
             kwargs=dict(args=args, kwargs=kwargs),
-            expiration=ceil(timeout),
+            expiration=ceil(timeout) if timeout else None,
         )
 
     async def close(self) -> None:
         if self.__connection is None:
             return
         await self.__connection.close()
+        self.__connection = None
         await super().close()
