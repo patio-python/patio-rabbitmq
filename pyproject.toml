@@ -1,7 +1,7 @@
 [tool.poetry]
 
 name = "patio-rabbitmq"
-version = "0.1.0"
+version = "0.1.1"
 description = "RabbitMQ broker implementation for PATIO"
 authors = ["Dmitry Orlov <me@mosquito.su>"]
 license = "MIT"

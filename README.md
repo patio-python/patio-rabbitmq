@@ -1,3 +1,5 @@
+[![PyPI - License](https://img.shields.io/pypi/l/patio-rabbitmq)](https://pypi.org/project/patio-rabbitmq) [![Wheel](https://img.shields.io/pypi/wheel/patio-rabbitmq)](https://pypi.org/project/patio-rabbitmq) [![Mypy](http://www.mypy-lang.org/static/mypy_badge.svg)]() [![PyPI](https://img.shields.io/pypi/v/patio-rabbitmq)](https://pypi.org/project/patio-rabbitmq) [![PyPI](https://img.shields.io/pypi/pyversions/patio-rabbitmq)](https://pypi.org/project/patio-rabbitmq) [![Coverage Status](https://coveralls.io/repos/github/patio-python/patio-rabbitmq/badge.svg?branch=master)](https://coveralls.io/github/patio-python/patio-rabbitmq?branch=master) ![tox](https://github.com/patio-python/patio-rabbitmq/workflows/tests/badge.svg?branch=master)
+
 PATIO Rabbitmq
 ==============
 
